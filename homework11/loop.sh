@@ -38,21 +38,21 @@ do
    systemctl enable httpd
    systemctl restart httpd
 
-   echo "Wordpress installed"
+   echo "Wordpress installing"
 done
 }
 
- read -p "Choose the function: " function
+ 
 
-if [ "$function" == "create users" ]
+if [ "$1" == "create users" ]
 then
     create users
 
-elif [ "$function" == "create folders" ]
+elif [ "$2" == "create folders" ]
 then
    create folders
 
-elif [ "$function" == "install wordpress" ]
+elif [ "$3" == "install wordpress" ]
 then
         install wordpress
 else
