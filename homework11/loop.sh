@@ -44,17 +44,17 @@ done
 
  
 
-if [ "$1" == "create users" ]
+if [ "$1" == "create_users" ]
 then
-    create users
+    create_users
 
-elif [ "$2" == "create folders" ]
+elif [ "$2" == "create_folders" ]
 then
-   create folders
+   create_folders
 
-elif [ "$3" == "install wordpress" ]
+elif [ "$3" == "install_wordpress" ]
 then
-        install wordpress
+        install_wordpress
 else
      echo "Invalid option. Use users ,folders or install."
 fi
