@@ -7,7 +7,7 @@ function users() {
      
 do
 
-      useradd $user
+      useradd $users
 done
 }
 
@@ -24,36 +24,39 @@ done
 
 function install() {
 
-   for install in httpd  ghostscript mysql-server php php-bcmath php-curl php-imagick php-intl php-json php-mbstring php-mysql php-xml php-zip
+   yum install httpd wget unzip epel-release  mysql -y
+yum install https://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
 
-do 
+yum-config-manager --enable remi-php74
 
-   yum install -y $install
-   wget https://wordpress.org/latest.tar.gz
-   tar zxf latest.tar.gz
-   mv wordpress /var/www/html/
-   chown -R www-data:www-data /var/www/html/
-   chmod 755 /var/www/html/
-   systemctl start hhtpd
-   systemctl enable httpd
-   systemctl restart httpd
+yum install php -y
 
-   echo "Wordpress installing"
-done
+yum install php-mysql -y
+
+wget https://wordpress.org/latest.tar.gz
+tar -xf latest.tar.gz -C /var/www/html/
+
+mv /var/www/html/wordpress/* /var/www/html/
+
+chown -R apache:apache /var/www/html/
+
+rm -rf /var/www/html/index.html
+
+systemctl restart httpd
 }
-
  
 
+read -p "Enter your function: " function 
 
-if [ "$1" == "users" ]
+if [ "$function" == "users" ]
 then
     users
 
-elif [ "$2" == "folders" ]
+elif [ "$function" == "folders" ]
 then
    folders
 
-elif [ "$3" == "install" ]
+elif [ "$function" == "install" ]
 then
     install
 else
