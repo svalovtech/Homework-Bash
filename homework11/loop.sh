@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-function user() {
+function users() {
   
-   for user in emma mia chloe zoe
+   for users in emma mia chloe zoe
      
 do
 
@@ -43,19 +43,19 @@ done
 }
 
  
-read -p "Choose the function: " function
 
-if [ "$function" == "$1" ]
-then
-    $1
 
-elif [ "$function" == "$2" ]
+if [ "$1" == "users" ]
 then
-   $2
+    users
 
-elif [ "$function" == "$3" ]
+elif [ "$2" == "folders" ]
 then
-    $3
+   folders
+
+elif [ "$3" == "install" ]
+then
+    install
 else
      echo "Invalid option. Use user ,folders or install."
 fi
