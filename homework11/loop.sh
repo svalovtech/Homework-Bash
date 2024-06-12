@@ -43,20 +43,21 @@ done
 }
 
  
+read -p "Choose the function: " function
 
-if [ "$1" == "create_users" ]
+if [ "$function" == "$!" ]
 then
     create_users
 
-elif [ "$2" == "create_folders" ]
+elif [ "$function" == "$2" ]
 then
    create_folders
 
-elif [ "$3" == "install_wordpress" ]
+elif [ "$function" == "$#" ]
 then
         install_wordpress
 else
-     echo "Invalid option. Use users ,folders or install."
+     echo "Invalid option. Use user ,folders or install."
 fi
 
 
