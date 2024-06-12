@@ -57,7 +57,7 @@ elif [ "$3" == "install" ]
 then
     install
 else
-     echo "Invalid option. Use user ,folders or install."
+     echo "Invalid option. Use users ,folders or install."
 fi
 
 
