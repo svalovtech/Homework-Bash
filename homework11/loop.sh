@@ -45,7 +45,7 @@ done
  
 read -p "Choose the function: " function
 
-if [ "$function" == "$!" ]
+if [ "$function" == "$1" ]
 then
     create_users
 
@@ -53,7 +53,7 @@ elif [ "$function" == "$2" ]
 then
    create_folders
 
-elif [ "$function" == "$#" ]
+elif [ "$function" == "$3" ]
 then
         install_wordpress
 else
